@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 @app.route('/api', methods=['GET'])
-def get_items():
+def endpoint_api():
     return jsonify(
         {
             "slack_name": request.args.get("slack_name"),
