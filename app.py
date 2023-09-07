@@ -6,8 +6,6 @@ app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
 def get_items():
-    data = [request.args.get("slack_name"), request.args.get("track")]
-    current_day = datetime.now().strftime("%A")
     return jsonify(
         {
             "slack_name": request.args.get("slack_name"),
@@ -16,6 +14,8 @@ def get_items():
                 "%Y-%m-%dT%H:%M:%SZ"
             ),
             "track": request.args.get("track"),
+            "github_file_url": "https://github.com/kengoon/hng_intern_endpoint/blob/master/app.py",
+            "github_repo_url": "https://github.com/kengoon/hng_intern_endpoint",
             "status_code": 200
         }
     )
